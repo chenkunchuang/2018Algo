@@ -3,7 +3,7 @@ import java.util.*;
 
 public class CompressString {
 
-    public void compress1(StringBuilder s) {
+    private void compress1(StringBuilder s) {
 
         int i=0;
 
@@ -39,7 +39,7 @@ public class CompressString {
     }
 
     // use stack to do
-    public void compress2 (String s) {
+    private void compress2 (String s) {
 
         Stack<Character> stack = new Stack<>();
         String ret = "";
@@ -56,7 +56,7 @@ public class CompressString {
         while(stack.isEmpty()==false) {
             ret = String.valueOf(stack.pop()) + ret;
         }
-        System.out.println(s);
+        System.out.println(ret);
     }
 
     public static void main(String[] args) {
