@@ -14,7 +14,7 @@ public class Spellchecker
 
         while( sc.hasNext() ) dict.add(sc.next());
         sc.close();
-        String path = System.getProperty("user.dir")+"\\src\\";
+        String path = System.getProperty("user.dir")+"/src/";
         sc = new Scanner( new File(path + "Spellchecker.java") ) ;
         while( sc.hasNextLine() )
         {
