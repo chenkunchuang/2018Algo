@@ -7,87 +7,122 @@
 *  3)Once producer is done with all number, inform consumer threads to gracefully exit.
  */
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.concurrent.ArrayBlockingQueue;
-
-class Producer implements Runnable {
-    private ArrayBlockingQueue<Integer> queue;
-    public Producer(ArrayBlockingQueue<Integer> queue) {
-     this.queue = queue;
-    }
-    public void run() {
-//        try {
-            for (int i = 1; i <= 100; i++) {
-                queue.offer(i);
-            }
-            System.out.println("Producer is done. Inform consumer to stop");
-            notifyAll();
-
-//        }
-// catch (InterruptedException e) {
-//            System.out.print("Producer thread is interrupted");
-//        }
-    }
-    @Override
-    public String toString() {
-         return "This is producer thread";
-    }
-}
-
-class Consumer implements Runnable {
-    private int id;
-    private ArrayBlockingQueue<Integer> queue;
-    public Consumer(int id, ArrayBlockingQueue<Integer> queue) {
-        this.id = id;
-        this.queue = queue;
-    }
-    public void run(){
-        // Thread ct
-        try {
-            if(getName()%2==0 && queue.peek()%2==0){
-                System.out.print("Consumer"+getName()+": " + queue.poll());
-            }
-            else if(getName()%2==1 && queue.peek()%2==1) {
-                System.out.print("Consumer"+getName()+": " + queue.poll());
-            }
-        }
-        catch (InterruptedException e) {
-            System.out.println("No more items to consume from Producer. Terminate Consumer" + this.toString());
-        }
-
-    }
-
-    @Override
-    public String toString() {
-        return " This is Consumer" + this.getName();
-    }
-    public int getName() {
-        return this.id;
-    }
-
-}
-
+import java.util.concurrent.atomic.*;
 
 public class ConsumerProducerDemo {
+    final static int TOTAL = 100;
+    private ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
+    private AtomicInteger count = new AtomicInteger();
+    // write to file
+//    PrintWriter out = new PrintWriter(
+//                      new BufferedWriter(
+//                              new FileWriter("")
+//                      )
+//    )
 
-    public ArrayBlockingQueue<Integer> queue;
+    class Producer implements Runnable {
+        @Override
+        public void run() {
+            try {
+                for (int i = 1; i <= TOTAL; i++) {
+                    queue.put(i);
+                    System.out.println(getName()+" produce order#"+i );
+                }
+                System.out.println("Producer is done. Inform consumer to stop");
 
-    public ConsumerProducerDemo() {
-        queue = new ArrayBlockingQueue<Integer>(10);
+            }
+            catch (InterruptedException e) {
+                System.out.print("Producer thread is interrupted");
+            }
+        }
+
+        private String getName() {
+            return Thread.currentThread().getName();
+        }
+
+        @Override
+        public String toString() {
+            return "This is producer thread";
+        }
+    }
+
+    class Consumer implements Runnable {
+
+//        public Consumer(int id, ArrayBlockingQueue<Integer> queue) {
+//            this.id = id;
+//            this.queue = queue;
+//        }
+        @Override
+        public void run(){
+
+            while(!finished()) {
+                try {
+                    if(!queue.isEmpty()) {
+                        int orderNo = queue.peek();
+
+                        if (this.getName().equals("Consumer1") && orderNo % 2 == 0) {
+                            System.out.println(getName() + " consumes " + queue.take());
+                            count.incrementAndGet();
+                        } else if (this.getName().equals("Consumer2") && orderNo % 2 == 1) {
+                            System.out.println(getName() + " consumes " + queue.take());
+                            count.incrementAndGet();
+                        }
+                    }
+                }
+                catch (InterruptedException e) {
+                    System.out.println("No more items to consume from Producer. Terminate Consumer" + this.toString());
+                    break;
+                }
+                finally {
+
+                }
+            }
+
+        }
+
+        private String getName() {
+            return Thread.currentThread().getName();
+        }
+
+        private boolean finished() {
+            if(count.get()>=TOTAL)
+                System.out.println("all items are consumed");
+            return count.get()>=TOTAL;
+        }
+
+        @Override
+        public String toString() {
+            return " This is Consumer" + this.getName();
+        }
     }
 
 
-    static void main(String[] args) {
+
+    public static void main(String[] args) {
 
         ConsumerProducerDemo demo = new ConsumerProducerDemo();
 
-        Thread p = new Thread (new Producer(demo.queue));
-        Thread c1 = new Thread (new Consumer(1, demo.queue));
-        Thread c2 = new Thread (new Consumer(2, demo.queue));
-
+        Thread p = new Thread (demo.new Producer());
+        Consumer c = demo.new Consumer();
+        Thread c1 = new Thread (demo.new Consumer(), "Consumer1");
+        Thread c2 = new Thread (demo.new Consumer(), "Consumer2");
+//        Thread c1 = demo. new Consumer("Consumer1");
+//        Thread c2 = demo. new Consumer();
         p.start();
+
         c1.start();
         c2.start();
-
+//        try {
+//            c1.join();
+//            c2.join();
+//        }
+//        catch(InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
 
