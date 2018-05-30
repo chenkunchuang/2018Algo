@@ -52,6 +52,9 @@ public class FindNumOfLIS {
         return v1.length > v2.length ? v1 : v2;
     }
 
+    /*
+     *  insert is to insert a new node and also merge the new value information
+     */
     public void insert(Node node, int key, Value val) {
         if (node.range_left == node.range_right) {
             node.val = merge(val, node.val);
