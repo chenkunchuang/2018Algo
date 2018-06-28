@@ -31,11 +31,11 @@ public class ReverseWordsInString {
         }
 
         // 反轉字串
-        reverse(chars, 0, left);
+        reverse(chars, 0, left-1);
 
         //反轉個別的字
-        reverseWords(chars, left+1);
-        return new String(chars, 0, left+1);
+        reverseWords(chars, left);
+        return new String(chars, 0, left);
     }
 
     public void reverse(char[] chars, int l, int r) {
@@ -61,8 +61,9 @@ public class ReverseWordsInString {
             i = j;
         }
     }
-    static void main(String[] args) {
+    public static void main(String[] args) {
         ReverseWordsInString sol = new ReverseWordsInString();
-        System.out.println(sol.reverseWords("The sky is blue"));
+        System.out.println(sol.reverseWords("  The sky is   blue"));
+        System.out.println(sol.reverseWords("        The     sky      is   blue"));
     }
 }
