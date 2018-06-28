@@ -94,8 +94,10 @@ public class FindNumOfLIS {
 
         int[] input1 = {1,3,5,4,7};
         int[] input2 = {2,2,2,2,2};
+        int[] input3 = {6,5,2,3,9,101};
         System.out.println("number of LIS: " + sol.findNumberOfLIS(input1));
         System.out.println("number of LIS: " + sol.findNumberOfLIS(input2));
+        System.out.println("number of LIS: " + sol.findNumberOfLIS(input3));
 
     }
 }
