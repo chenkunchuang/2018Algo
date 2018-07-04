@@ -11,21 +11,21 @@ package UnionFind;
 *  NWeighted  +  path  (M  +  N)  lg*  N
 *
 */
-public class WeightedQuickUnionUF<E>{
+public class WeightedQuickUnionUF{
 
     private int[] father; // father link
     private int[] sz; // size of component for roots(fathers)
     private int count; // number of components
 
-    public WeightedQuickUnionUF(char[][] grid) {
+    public WeightedQuickUnionUF(Object[][] grid, Object key) {
         int row = grid.length;
         int col = grid[0].length;
-        count = row*col;
+        count = 0;
         father = new int[count];
         sz = new int[count];
         for(int i=0; i<row; i++) {
             for(int j=0; j<col; j++) {
-                if(grid[i][j]=='1') {
+                if(grid[i][j].equals(key)) {
                     int idx = i*row + j;
                     father[idx] = idx;
                     sz[idx] = 1;
@@ -37,7 +37,7 @@ public class WeightedQuickUnionUF<E>{
     //find the root of given node
     private int find(int i) {
         while(i!=father[i]) {
-            father[i] = father[father[i]];
+            father[i] = father[father[i]]; // this step is to break down tree path to all its root
             i = father[i];
         }
         return i;
