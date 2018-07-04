@@ -11,13 +11,13 @@ package UnionFind;
 *  NWeighted  +  path  (M  +  N)  lg*  N
 *
 */
-public class WeightedQuickUnionUF{
+public class WeightedQuickUnionUF<E>{
 
     private int[] father; // father link
     private int[] sz; // size of component for roots(fathers)
     private int count; // number of components
 
-    public WeightedQuickUnionUF(Object[][] grid, Object key) {
+    public WeightedQuickUnionUF(E[][] grid, E key) {
         int row = grid.length;
         int col = grid[0].length;
         count = 0;

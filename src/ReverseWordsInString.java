@@ -11,31 +11,23 @@ public class ReverseWordsInString {
 
     public String reverseWords(String s) {
 
-        //先除去前後的空格
-        int left =0;
-        int right = s.length()-1;
-        while(s.charAt(left)==' ') left++;
-        while(s.charAt(right)==' ') right --;
-        String str = s.substring(left, right+1);
+        if(s.length()==0)
+            return s;
 
-        // 除去中間多的空格
-        char[] chars = str.toCharArray();
-        left = right =0;
-        while(right<str.length()) {
-            if(chars[right]!=' ')
-                chars[left++] = chars[right++];
-            else {
-                chars[left++] = chars[right++]; //保留一個space
-                while(chars[right]==' ') right++;
-            }
-        }
+        char[] arr = s.toCharArray();
+        int n = s.length();
+
+
 
         // 反轉字串
-        reverse(chars, 0, left-1);
+        reverse(arr, 0, n-1);
 
         //反轉個別的字
-        reverseWords(chars, left);
-        return new String(chars, 0, left);
+        reverseWords(arr, n);
+
+        //clean white space
+        return cleanSpaces(arr, n);
+
     }
 
     public void reverse(char[] chars, int l, int r) {
@@ -49,21 +41,45 @@ public class ReverseWordsInString {
         }
         return;
     }
+    // use two pointers to find the first letter and the end of the word
+    // then swap and update the pointer.
     public void reverseWords(char[] chars, int n) {
         int i = 0; //用來定位第一個字母的指針
         int j = 0; //用來走的指針
 
-        while(i<n) {
-
-            while(j<n && chars[j] !=' ') j++; //找字的結尾
+        while(j<n) {
+            while(i<n && chars[i] == ' ') i++;
+            j = i;
+            while(j<n && chars[j]!=' ') j++;
             reverse(chars, i, j-1);
-            j++;
             i = j;
         }
+
     }
+
+    public String cleanSpaces(char[] chars, int n) {
+        int i = 0; // write pointer
+        int j = 0; // read pointer
+
+        while(j<n) {
+            // leading or in-between white spaces
+            while(j<n && chars[j]==' ') j++;
+            while(j<n && chars[j]!=' ') chars[i++] = chars[j++];
+            // in-between or trailing white spaces, find the next letter
+            while(j<n && chars[j]==' ') j++;
+            // only add a white space only if it's not last
+            if(j<n) chars[i++] = ' ';
+        }
+
+        return new String(chars).substring(0, i);
+
+    }
+
     public static void main(String[] args) {
         ReverseWordsInString sol = new ReverseWordsInString();
         System.out.println(sol.reverseWords("  The sky is   blue"));
-        System.out.println(sol.reverseWords("        The     sky      is   blue"));
+        System.out.println(sol.reverseWords("    d.     "));
+        System.out.println(sol.reverseWords("        The     sky      is   blue."));
+
     }
 }
