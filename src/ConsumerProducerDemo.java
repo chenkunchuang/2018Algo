@@ -62,15 +62,17 @@ public class ConsumerProducerDemo {
             while(!finished()) {
                 try {
                     if(!queue.isEmpty()) {
-                        int orderNo = queue.peek();
+                        System.out.println(getName() + " consumes " + queue.take());
+                        count.incrementAndGet();
+//                        int orderNo = queue.peek();
 
-                        if (this.getName().equals("Consumer1") && orderNo % 2 == 0) {
-                            System.out.println(getName() + " consumes " + queue.take());
-                            count.incrementAndGet();
-                        } else if (this.getName().equals("Consumer2") && orderNo % 2 == 1) {
-                            System.out.println(getName() + " consumes " + queue.take());
-                            count.incrementAndGet();
-                        }
+//                        if (this.getName().equals("Consumer1") && orderNo % 2 == 0) {
+//                            System.out.println(getName() + " consumes " + queue.take());
+//                            count.incrementAndGet();
+//                        } else if (this.getName().equals("Consumer2") && orderNo % 2 == 1) {
+//                            System.out.println(getName() + " consumes " + queue.take());
+//                            count.incrementAndGet();
+//                        }
                     }
                 }
                 catch (InterruptedException e) {
