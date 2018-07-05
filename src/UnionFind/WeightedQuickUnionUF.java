@@ -20,13 +20,13 @@ public class WeightedQuickUnionUF<E>{
     public WeightedQuickUnionUF(E[][] grid, E key) {
         int row = grid.length;
         int col = grid[0].length;
-        count = 0;
-        father = new int[count];
-        sz = new int[count];
+//        count = 0;
+        father = new int[row*col];
+        sz = new int[row*col];
         for(int i=0; i<row; i++) {
             for(int j=0; j<col; j++) {
                 if(grid[i][j].equals(key)) {
-                    int idx = i*row + j;
+                    int idx = i*col + j;
                     father[idx] = idx;
                     sz[idx] = 1;
                     count++;
