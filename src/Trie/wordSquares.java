@@ -44,34 +44,32 @@ public class wordSquares {
         //backtracking to form the wordsquares
         for(int i=0; i<words.length; i++) {
             wordsquare.add(words[i]);
-            search(words[0].length(), mTrie, wordsquare, ans);
+            search(words, mTrie, wordsquare, ans);
             wordsquare.remove(wordsquare.size()-1);
         }
         System.out.println(ans);
         return ans;
     }
 
-    // search for wordsquare
-    public void search(int len, TrieST root, List<String> wordsquare, List<List<String>> ans) {
+    // search for wordsquare based on word indexes from Trie
+    public void search(String[] words, TrieST root, List<String> wordsquare, List<List<String>> ans) {
 
-        if(wordsquare.size()==len) {
+        if(wordsquare.size()==words[0].length()) {
             ans.add(new ArrayList(wordsquare));
             return;
         }
 
         StringBuilder prefix = new StringBuilder();
-
         int idx = wordsquare.size();// idx to pick char in string
 
-        for(String w: wordsquare) {
+        for(String w: wordsquare)
             prefix.append(w.charAt(idx));
-        }
 
-        List<String> starWithPrefix = root.findPrefix(prefix.toString());
+        List<Integer> wordsIdx = root.findPrefix(prefix.toString());
 
-        for(String w:starWithPrefix) {
-            wordsquare.add(w);
-            search(len, root, wordsquare, ans);
+        for(Integer i:wordsIdx) {
+            wordsquare.add(words[i]);
+            search(words, root, wordsquare, ans);
             wordsquare.remove(wordsquare.size()-1);
         }
 
