@@ -58,7 +58,7 @@ public class AccountMerger {
 
         AccountMerger sol = new AccountMerger();
         String[][] data= {{"John", "johnsmith@mail.com", "john00@mail.com"},
-            {"John", "johnnybravo@mail.com"}, {"John", "johnsmith@mail.com", "john_newyork@mail.com"},
+            {"John", "johnnybravo@mail.com"}, {"John", "johnsmith@mail.com","john_newyork@mail.com"},
             {"Mary", "mary@mail.com"}};
         List<List<String>> input = new ArrayList<>();
         for(int i=0; i<data.length; i++) {
