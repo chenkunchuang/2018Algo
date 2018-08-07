@@ -24,7 +24,6 @@ public class KMPSearch {
                 // back up pattern index until reaching the first char of pattern
                 if(j>0) {
                     j = KMP_Table[j-1];
-                    i++;
                 }
                 else {
                     i++;
