@@ -6,9 +6,9 @@ import java.util.*;
 
 public class SplitTree {
 
-    class TreeNode {
-        private  TreeNode left, right;
-        private int val;
+    static class TreeNode {
+        public   TreeNode left, right;
+        public int val;
         public TreeNode(int val) {
             this.val = val;
             this.left = null;
@@ -158,5 +158,13 @@ public class SplitTree {
         System.out.println();
         sol.deleteNode(4);
 
+        HashSet<int[] > set = new HashSet<>();
+        set.add(new int[] {0,1});
+        set.add(new int[] {1,0});
+        set.add(new int[] {2,0});
+        int [] a = {2,0};
+        if(set.contains(a)) {
+            System.out.println("contains");
+        }
     }
 }
