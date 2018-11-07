@@ -35,10 +35,11 @@ Explanation: Note that you are allowed to reuse a dictionary word.
 
 public class WordBreakTwo {
 
-    private HashMap<String, List<String>> mem = new HashMap<>();
+    private HashMap<String, List<String>> mem;// = new HashMap<>();
 
     public List<String> wordBreak(String s, List<String> wordDict) {
         HashSet<String> dict = new HashSet<>();
+        mem = new HashMap<>();
         for(String word: wordDict)
             dict.add(word);
 

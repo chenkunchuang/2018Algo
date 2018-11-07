@@ -77,8 +77,11 @@ public class ExpressiveWord {
     }
 
     public static void main(String[] args) {
-        String[] words = {"hello", "hi", "cat", "world","hee","hellotg"};
-        ExpressiveWord sol = new ExpressiveWord(words);
+//        String[] words = {"hello", "hi", "cat", "world","hee","hellotg"};
+//        ExpressiveWord sol = new ExpressiveWord(words);
+        //in command line: java ExpressiveWord hello hi cat world hee  hellotg
+
+        ExpressiveWord sol = new ExpressiveWord(args);
         String[] extensiveWords = {"heeeellooooo","hiiiiiiiiiii","hee","heeellooootttggg","cccaaatttt"};
         for(String s: extensiveWords)
             System.out.println("extensive word:"+s+" and word in dictionary:"+sol.matchWord(s));

@@ -54,11 +54,7 @@ public class WordSearchTwo {
         TrieST mTrie = new TrieST(words);
         for(int i=0; i<board.length; i++) {
             for(int j=0; j<board[0].length; j++)
-                // if(mTrie.IsPrefix(board[i][j])==true && visited[i][j]==false) {
-                // visited[i][j]=true;
                 DFS(mTrie.root.child[board[i][j]-'a'], board, String.valueOf(board[i][j]), i, j, ans, visited);
-            // visited[i][j]=false;
-            // }
         }
         System.out.println(ans);
         return ans;

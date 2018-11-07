@@ -6,9 +6,9 @@ import java.util.*;
 
 public class SplitTree {
 
-    class TreeNode {
-        private  TreeNode left, right;
-        private int val;
+    static class TreeNode {
+        public   TreeNode left, right;
+        public int val;
         public TreeNode(int val) {
             this.val = val;
             this.left = null;
@@ -19,7 +19,6 @@ public class SplitTree {
     private List<TreeNode> list;
     private TreeNode splitHead;
     private TreeNode root;
-    private boolean isFound;
 
     public SplitTree(String[] nodes) {
         Queue<TreeNode> q = new LinkedList<>();
@@ -41,6 +40,7 @@ public class SplitTree {
                     q.offer(node.right);
             }
         }
+        list.add(root);
     }
 
     private TreeNode[] split(TreeNode head, int key) {
@@ -72,7 +72,6 @@ public class SplitTree {
             splitsHead[1] = head;
             return splitsHead;
         }
-
     }
 
     public void printTrees() {
@@ -107,16 +106,20 @@ public class SplitTree {
 //        this.split(root, key);
 //    }
     public boolean deleteNode(int key) {
-        TreeNode[] trees = split(root, key);
-        if(trees[1]==null)
-            return false;
-        else {
-            list.add(trees[0]);
-            deleteNode(trees[1], key);
-            printTrees();
-            return true;
+//        list.clear();
+        boolean isFound = false;
+        for(int i=0; i<list.size(); i++ ) {
+            TreeNode[] trees = split(list.get(i), key);
+            if (trees[1] != null) {
+                list.remove(i);
+                if(trees[0]!=null)
+                  list.add(i, trees[0]);
+                deleteNode(trees[1], key);
+                printTrees();
+                isFound = true;
+            }
         }
-
+        return isFound;
     }
     // this API is delete the node with given key.
     // true: found the matching key and delete it. false: no key found
@@ -143,8 +146,25 @@ public class SplitTree {
     }
 
     public static void main(String[] args) {
-        String[] BST = {"5", "3", "6", "2", "4", "null", "7","null","null","null","null","null","9"};
+        String[] BST = {"6", "3", "8", "2", "4", "7", "9","1","null","null","null","null","null","null","10"};
         SplitTree sol = new SplitTree(BST);
+        sol.deleteNode(6);
+        System.out.println();
+        sol.deleteNode(5);
+        System.out.println();
         sol.deleteNode(3);
+        System.out.println();
+        sol.deleteNode(7);
+        System.out.println();
+        sol.deleteNode(4);
+
+        HashSet<int[] > set = new HashSet<>();
+        set.add(new int[] {0,1});
+        set.add(new int[] {1,0});
+        set.add(new int[] {2,0});
+        int [] a = {2,0};
+        if(set.contains(a)) {
+            System.out.println("contains");
+        }
     }
 }
