@@ -57,15 +57,16 @@ public class AutoCompletionSystem {
 
     public List<Node> lookup(String s) {
         List<Node> ret = new ArrayList<>();
-        TrieNode iter = head;
+        if(iterator==null)
+            iterator = head;
         for(int i=0; i<s.length(); i++) {
             int idx = s.charAt(i)==' '?26:s.charAt(i)-'a';
-            if(iter.child[idx]==null)
+            if(iterator.child[idx]==null)
                 return new ArrayList<>();
-            iter = iter.child[idx];
+            iterator = iterator.child[idx];
         }
 
-        find(s, iter, ret);
+        find(s, iterator, ret);
         return ret;
     }
     //邊便利邊建立sentences
@@ -120,7 +121,7 @@ public class AutoCompletionSystem {
         String[] senten= {"i love you","island","iroman","i love leetcode"};
         int[] freq = {5,3,2,2};
         AutoCompletionSystem sol = new AutoCompletionSystem(senten, freq);
-        int i=5;
+        int i=1;
         while(i-->0) {
             System.out.println(sol.input('i'));
             System.out.println(sol.input(' '));
