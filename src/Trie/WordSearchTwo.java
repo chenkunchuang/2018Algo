@@ -2,7 +2,7 @@ package Trie;
 import java.util.*;
 
 public class WordSearchTwo {
-
+    int[][] moves ={{-1,0},{1,0},{0,-1},{0,1}};
     private static class TrieST {
         private final int R = 26;
         private TrieNode root;
@@ -62,47 +62,76 @@ public class WordSearchTwo {
     //idx: 2-D index轉換, //要用current node,而不是從root開始,要不然會一直從頭找
     //NOTE: java nested class的type, 可以直接宣告, Base.nestType, like TrieST.TrieNode
     public void DFS(TrieST.TrieNode curr, char[][] board, String word, int i, int j, List<String> ans, boolean[][] visited) {
-        if(i<0 || i>=board.length || j<0 || j>=board[0].length)
+//        if(i<0 || i>=board.length || j<0 || j>=board[0].length)
+//            return;
+//        //early return if char is not found
+//        if(curr==null)
+//            return;
+//        else if(curr.val!=-1)
+//        {
+//            ans.add(word);
+//            //重設定成-1,就不會有重複的
+//            curr.val = -1;
+//        }
+
+        if(curr==null || i<0 || i>=board.length || j<0 || j>=board[0].length )
             return;
-        //early return if char is not found
-        if(curr==null)
-            return;
-        else if(curr.val!=-1)
-        {
+        if(curr.val!=-1) {
+//            System.out.println("found:"+word);
             ans.add(word);
-            //重設定成-1,就不會有重複的
-            curr.val = -1;
+            // iter.isWord=false;
+            return;
         }
 
-        if(i-1>=0 && visited[i-1][j]!=true) {
-            // DFS(mTrie, board, word.append(board[i-1][j]), i-1, j, ans);
-            // word.deleteCharAt(word.length()-1);
-            visited[i-1][j] = true;
-            DFS(curr.child[board[i-1][j]-'a'], board, word+board[i-1][j], i-1, j, ans, visited);
-            visited[i-1][j] = false;
+        // word+=board[x][y];
+        char c = board[i][j];
+//        System.out.println("i:"+i+ " j:"+j+" c:"+c);
+        board[i][j] ='#';
+        for(int[] move: moves) {
+            int new_x=i+move[0], new_y=j+move[1];
+            if(new_x>=0&&new_x<board.length&&new_y>=0&&new_y<board[0].length) {
+                char next_char = board[new_x][new_y];
+//                if(curr.child[next_char-'a']))
+                if(board[new_x][new_y]!='#')
+                    DFS(curr.child[next_char-'a'], board, word+next_char, new_x, new_y,  ans, visited);
+                // dfs(board, x+1, y, iter.child[c-'a'], ret, word+c);
+                // dfs(board, x-1, y, iter.child[c-'a'], ret, word+c);
+                // dfs(board, x, y+1, iter.child[c-'a'], ret, word+c);
+                // dfs(board, x, y-1, iter.child[c-'a'], ret, word+c);
+            }
         }
-        if(i+1<board.length && visited[i+1][j]!=true) {
-            // DFS(mTrie, board, word.append(board[i+1][j]), i+1, j, ans);
-            // word.deleteCharAt(word.length()-1);
-            visited[i+1][j] = true;
-            DFS(curr.child[board[i+1][j]-'a'], board, word+board[i+1][j], i+1, j, ans, visited);
-            visited[i+1][j] = false;
-        }
-        if(j-1>=0&&visited[i][j-1]!=true) {
-            // DFS(mTrie, board, word.append(board[i][j-1]), i, j-1, ans);
-            // word.deleteCharAt(word.length()-1);
-            visited[i][j-1] = true;
-            DFS(curr.child[board[i][j-1]-'a'], board, word+board[i][j-1], i, j-1, ans, visited);
-            visited[i][j-1] = false;
-        }
-        if(j+1<board[0].length&&visited[i][j+1]!=true) {
-            // DFS(mTrie, board, word.append(board[i][j+1]), i, j+1, ans);
-            // word.deleteCharAt(word.length()-1);
-            visited[i][j+1] = true;
-            DFS(curr.child[board[i][j+1]-'a'], board, word+board[i][j+1], i, j+1, ans,visited);
-            visited[i][j+1] = false;
-        }
+        board[i][j]=c;
         return;
+
+//        if(i-1>=0 && visited[i-1][j]!=true) {
+//            // DFS(mTrie, board, word.append(board[i-1][j]), i-1, j, ans);
+//            // word.deleteCharAt(word.length()-1);
+//            visited[i-1][j] = true;
+//            DFS(curr.child[board[i-1][j]-'a'], board, word+board[i-1][j], i-1, j, ans, visited);
+//            visited[i-1][j] = false;
+//        }
+//        if(i+1<board.length && visited[i+1][j]!=true) {
+//            // DFS(mTrie, board, word.append(board[i+1][j]), i+1, j, ans);
+//            // word.deleteCharAt(word.length()-1);
+//            visited[i+1][j] = true;
+//            DFS(curr.child[board[i+1][j]-'a'], board, word+board[i+1][j], i+1, j, ans, visited);
+//            visited[i+1][j] = false;
+//        }
+//        if(j-1>=0&&visited[i][j-1]!=true) {
+//            // DFS(mTrie, board, word.append(board[i][j-1]), i, j-1, ans);
+//            // word.deleteCharAt(word.length()-1);
+//            visited[i][j-1] = true;
+//            DFS(curr.child[board[i][j-1]-'a'], board, word+board[i][j-1], i, j-1, ans, visited);
+//            visited[i][j-1] = false;
+//        }
+//        if(j+1<board[0].length&&visited[i][j+1]!=true) {
+//            // DFS(mTrie, board, word.append(board[i][j+1]), i, j+1, ans);
+//            // word.deleteCharAt(word.length()-1);
+//            visited[i][j+1] = true;
+//            DFS(curr.child[board[i][j+1]-'a'], board, word+board[i][j+1], i, j+1, ans,visited);
+//            visited[i][j+1] = false;
+//        }
+//        return;
     }
 
     public static void main(String[] args) {
