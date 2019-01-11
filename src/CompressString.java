@@ -1,3 +1,8 @@
+/*
+Leetcode 443 in compress3
+
+compress4 用來比較兩個字串 aaabbbc = a3b3c
+ */
 import java.util.*;
 
 
@@ -59,12 +64,61 @@ public class CompressString {
         System.out.println(ret);
     }
 
+    /*
+        compress3 is used to compress same letter to number of appearance.
+        aaabbbc--> a3b3c leetcode; 443
+     */
+
+    public int compress3(char[] chars) {
+        int curr=0, n=chars.length;
+
+        for(int i=0, j=0; j<n; j=i) {
+            while(i<n&&chars[i]==chars[j]) i++;
+            int cnt = i-j;
+            chars[curr++] = chars[j];
+            if(cnt==1)
+                continue;
+            for(char c: String.valueOf(cnt).toCharArray())
+                chars[curr++] = c;
+
+        }
+        System.out.println("new len " + curr);
+        return curr;
+    }
+
+    public boolean compress4(String s1, String s2) {
+        int i=0, j=0;
+
+        while(i<s1.length()&&j<s2.length()) {
+            if(s1.charAt(i)!=s2.charAt(j)) {
+                if(!Character.isDigit(s2.charAt(j)))
+                    return false;
+                int idx = j;
+                while(j<s2.length()&&Character.isDigit(s2.charAt(j))) j++;
+                int count = Integer.valueOf(s2.substring(idx, j))-1;
+                idx=i;
+                while(i<s1.length()&&count>0) {
+                    if(s1.charAt(idx)!=s1.charAt(i))
+                        return false;
+                    count--; i++;
+                }
+            }
+            else {
+                i++; j++;
+            }
+        }
+        return i==s1.length()&&j==s2.length();
+    }
+
     public static void main(String[] args) {
 
         CompressString solution = new CompressString();
         //System.out.println("Compress String main");
         solution.compress1(new StringBuilder("abbcccd"));
         solution.compress2("aavvvccccdd");
+        solution.compress3("abccc".toCharArray());
+        System.out.println(solution.compress4("aaaaaaaaaaaabbbcddd", "a12b3cd3"));
+        System.out.println(solution.compress4("abbbcddd", "ab2cd3"));
 
     }
 }
