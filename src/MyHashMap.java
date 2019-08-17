@@ -1,7 +1,9 @@
 import java.util.*;
+import java.util.concurrent.locks.*;
 
 public class MyHashMap<K, V> {
     private Node[] arr;
+    ReentrantLock lock;
     private final int cap =100;
     class Node<K,V> {
         Node next;
@@ -16,6 +18,7 @@ public class MyHashMap<K, V> {
     }
         public MyHashMap() {
             arr = new Node[cap];
+            lock = new ReentrantLock();
         }
 
         public int hash(K _key) {
@@ -24,6 +27,7 @@ public class MyHashMap<K, V> {
 
         public void put(K _key, V _value) {
             int idx = hash(_key);
+            lock.lock();
             if(arr[idx]==null) {
                 arr[idx] = new Node(_key, _value);
             }
@@ -40,6 +44,7 @@ public class MyHashMap<K, V> {
                 else
                     iter.val = _value;
             }
+            lock.unlock();
 
             return;
         }
@@ -90,9 +95,12 @@ public class MyHashMap<K, V> {
                     while(iter!=null) {
                         sb.append("{"+(K)iter.key +","+(V)iter.val +"} ");
                         iter = iter.next;
+                        if(iter!=null)
+                            System.out.println("key collision: idx:"+i+ " key:"+iter.key);
                     }
                 }
             }
+//            return "";
             return sb.toString();
         }
 
@@ -108,6 +116,9 @@ public class MyHashMap<K, V> {
             map_int.put(101,35);
             map_int.remove(101);
             System.out.println(map_string);
+
+            for(int i=1; i<=200; i+=3)
+                map_int.put(i, i+30);
             System.out.println(map_int);
         }
 
