@@ -116,10 +116,11 @@ public class MyHashMap<K, V> {
             map_int.put(101,35);
             map_int.remove(101);
             System.out.println(map_string);
+            System.out.println(map_int.get(1));
 
-            for(int i=1; i<=200; i+=3)
-                map_int.put(i, i+30);
-            System.out.println(map_int);
+//            for(int i=1; i<=200; i+=3)
+//                map_int.put(i, i+30);
+//            System.out.println(map_int);
         }
 
 
