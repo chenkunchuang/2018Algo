@@ -2,7 +2,7 @@ import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LFUCache {
-  class Node {
+  static class Node {
     int key, val, freq;
     Node next, prev;
     Node(int key, int val) {
@@ -13,7 +13,7 @@ public class LFUCache {
       this.prev = null;
     }
   }
-  class DoublyLinkedList {
+  static class DoublyLinkedList {
     Node head, tail;
     int size;
     DoublyLinkedList() {
