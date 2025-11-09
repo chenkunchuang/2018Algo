@@ -8,12 +8,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2047ee74-5ee0-4b2a-8397-5f07a51dcabf" name="Default" comment="Update new comments">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LFUCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/AccountMerger.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/AllOne$Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/AllOne.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/BST.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/BSTRangeSum.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/CanPartitionSubset.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/CodecBST.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/CompressString.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/ConsumerProducerDemo$Consumer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/ConsumerProducerDemo$Producer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/ConsumerProducerDemo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/CrackSafe.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/DFS/WordBreakTwo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/ExpressiveWord.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/FindAnagram.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/FindNumOfLIS$Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/FindNumOfLIS$Value.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/FindNumOfLIS.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/FriendRecommend.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/GetFactors.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/GroupAnagrams.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/GroupShiftedString.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/HashSetDemo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/KMPSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/LFUCache$DoublyLinkedList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/LFUCache$Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/LFUCache.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/MapAndReduce.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/MaxSumIn2DArray.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/OptimalAccountsSettle.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Parser$TagContainer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Parser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/PartitionKSubsets.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/RandomizedCollection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Receive.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/RemoveExtraWhiteSpace.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/ReverseWordsInString.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/RingBuffer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Send.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/ShortestDistanceFromAllBuildings.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Spellchecker.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/SplitTree$TreeNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/SplitTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/TreeNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/TriangleArray.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/AutoCompletionSystem$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/AutoCompletionSystem$Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/AutoCompletionSystem$TrieNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/AutoCompletionSystem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/StringMatchingInStream$TrieNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/StringMatchingInStream.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/TrieST$TrieNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/TrieST.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/WordSearchTwo$TrieST$TrieNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/WordSearchTwo$TrieST.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/WordSearchTwo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/Trie/wordSquares.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/TwoDFenwickTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/UDPDemo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/UnionFind/AccountsMerge$UF.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/UnionFind/AccountsMerge.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/UnionFind/NumberOfIsland.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/UnionFind/WeightedQuickUnionUF.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/WordLadderPath.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/com/company/FenwickTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/2018Algo/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2018Algo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/2018Algo.iml" afterDir="false" />
     </list>
@@ -163,6 +225,18 @@
       </GitPushTagMode>
     </option>
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "chenkunchuang"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/chenkunchuang/2018Algo.git",
+    "accountId": "ddf31cc5-ae5f-423f-b679-a419434ae6ab"
+  }
+}]]></component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
@@ -212,7 +286,7 @@
     <option name="height" value="877" />
   </component>
   <component name="ProjectId" id="2ssaYCSZnoVqv2swtMHI1NwxLYe" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -294,6 +368,7 @@
     "Application.AllOne.executor": "Run",
     "Application.BSTRangeSum.executor": "Run",
     "Application.LFUCache.executor": "Run",
+    "Application.OptimalAccountsSettle.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -302,6 +377,7 @@
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -309,7 +385,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.36363637",
     "settings.editor.selected.configurable": "scala.compiler",
@@ -323,7 +399,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LFUCache">
+  <component name="RunManager" selected="Application.OptimalAccountsSettle">
     <configuration name="AllOne" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AllOne" />
       <module name="2018Algo" />
@@ -345,6 +421,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OptimalAccountsSettle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OptimalAccountsSettle" />
+      <module name="2018Algo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WordBreakTwo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DFS.WordBreakTwo" />
       <module name="2018Algo" />
@@ -358,33 +441,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WordSearchTwo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Trie.WordSearchTwo" />
-      <module name="2018Algo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Trie.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
+      <item itemvalue="Application.OptimalAccountsSettle" />
       <item itemvalue="Application.LFUCache" />
       <item itemvalue="Application.AllOne" />
       <item itemvalue="Application.BSTRangeSum" />
-      <item itemvalue="Application.WordSearchTwo" />
       <item itemvalue="Application.WordBreakTwo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.OptimalAccountsSettle" />
         <item itemvalue="Application.LFUCache" />
         <item itemvalue="Application.AllOne" />
         <item itemvalue="Application.BSTRangeSum" />
         <item itemvalue="Application.WordBreakTwo" />
-        <item itemvalue="Application.WordSearchTwo" />
       </list>
     </recent_temporary>
   </component>
